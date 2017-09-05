@@ -51,12 +51,6 @@
   .navbar-default .navbar-link:hover {
     color: #b0bec5;
   }
-  
-.navbar-nav > li > a, .navbar-brand {
-    padding-top:5px !important;
-    padding-bottom:5px !important;
-    line-height: 50px;    
-}
 
 .navbar {min-height:30px !important;}
 
@@ -74,4 +68,18 @@
       color: #b0bec5;
       background-color: #263238;
     }
+  }
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-nav > li {
+    float: none;
+    display: inline-block;
+  }
+  
+  .footer-copyright {
+    color: #b0bec5;
+    text-align: center;    
   }

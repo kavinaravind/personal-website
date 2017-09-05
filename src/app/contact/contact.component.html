@@ -1,0 +1,62 @@
+<div class="jumbotron">
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <h1 class="display-2 text-center">GET IN TOUCH</h1>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <form name="contact-form" id="contactForm" action="https://formspree.io/kvnaravind@gmail.com" method="POST">
+                            <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control" id="name" required="">
+                            </div>
+                            <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" required="">
+                            </div>
+                            <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="message" class="form-control" id="message" rows="8" required=""></textarea>
+                            </div>
+                            <button type="submit" name="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row center-xs">
+                        <div class="col-sm-6">
+                            <address>
+                                <i class="fa fa-map-marker"></i>                                    
+                                <strong>Location:</strong>
+                                San Jose CA, USA
+                                <br>
+                            </address>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="contact-number">
+                            <i class="fa fa-envelope"></i>                                    
+                            <strong>Email:</strong>
+                            <a href="mailto:kvnaravind@gmail.com" target="_blank">kvnaravind@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="zoom">
+                                    <agm-marker [latitude]="lat" [longitude]="lng" [title]="title" openInfoWindow="true">
+                                            <agm-info-window>
+                                                <strong>San Jose, CA</strong>
+                                            </agm-info-window>                                                                                                                                    
+                                    </agm-marker>
+                            </agm-map>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+    

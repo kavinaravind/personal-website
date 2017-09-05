@@ -14,6 +14,10 @@ module.exports = {
             {
                 test: /\.css$/,
                 loaders: ['raw-loader']
+            },
+            {
+                test: /\.(pdf|jpe?g|png|gif|svg)$/, 
+                loader: 'file-loader?name=assets/[name].[ext]'
             }
         ],
         exprContextCritical: false

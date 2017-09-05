@@ -1,21 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { GoogleApiConfig } from './shared/google-api-config';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [GoogleApiConfig]
 })
 export class AppComponent implements OnInit {
   loadedFeature = 'recipe';
 
-  constructor() {}
+  constructor(private googleAPIConfig: GoogleApiConfig) {}
 
   ngOnInit() {
     firebase.initializeApp({
-      apiKey: "AIzaSyCPV7b-EeWBTT_2xeJUXt1eY2AWth9YeAo",
-      authDomain: "ng-recipe-book-fcb84.firebaseapp.com"
-    })
+      apiKey: this.googleAPIConfig.apiKey,
+      authDomain: this.googleAPIConfig.authDomain,
+      databaseURL: this.googleAPIConfig.databaseURL,
+      projectId: this.googleAPIConfig.projectId,
+      storageBucket: this.googleAPIConfig.storageBucket,
+      messagingSenderId: this.googleAPIConfig.messagingSenderId
+    });
   }
 
   onNavigate(feature: string) {
