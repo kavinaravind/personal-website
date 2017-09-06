@@ -7,6 +7,7 @@ import { ContactComponent } from "./contact/contact.component";
 import { BlogComponent } from "./blog/blog.component";
 import { ResumeComponent } from "./resume/resume.component";
 import { ProjectsComponent } from "./projects/projects.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -15,9 +16,9 @@ const appRoutes: Routes = [
     { path: 'contact', component: ContactComponent },
     { path: 'resume', component: ResumeComponent },    
     { path: 'blog', component: BlogComponent },
-    
- // { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-    { path: 'shopping-list', component: ShoppingListComponent }
+    { path: 'shopping-list', component: ShoppingListComponent },
+    { path: '404', component: NotFoundComponent },
+    { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({

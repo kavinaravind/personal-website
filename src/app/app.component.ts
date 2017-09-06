@@ -1,30 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
-import { GoogleApiConfig } from './shared/google-api-config';
+import { StartupService } from './services/startup.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [GoogleApiConfig]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  loadedFeature = 'recipe';
 
-  constructor(private googleAPIConfig: GoogleApiConfig) {}
+  public location = '';
 
-  ngOnInit() {
-    firebase.initializeApp({
-      apiKey: this.googleAPIConfig.apiKey,
-      authDomain: this.googleAPIConfig.authDomain,
-      databaseURL: this.googleAPIConfig.databaseURL,
-      projectId: this.googleAPIConfig.projectId,
-      storageBucket: this.googleAPIConfig.storageBucket,
-      messagingSenderId: this.googleAPIConfig.messagingSenderId
-    });
+  constructor(private router: Router, private startup: StartupService) {
+
   }
 
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
+  ngOnInit() {
+    
+    // If there is no startup data receivied (maybe an error!)
+    // navigate to error route
+    if (!this.startup.startupData) {
+      this.router.navigate(['404'], { replaceUrl: true });
+      this.location = '404';
+    } else {
+      firebase.initializeApp({
+        apiKey: this.startup.startupData.apiKey,
+        authDomain: this.startup.startupData.authDomain,
+        databaseURL: this.startup.startupData.databaseURL,
+        projectId: this.startup.startupData.projectId,
+        storageBucket: this.startup.startupData.storageBucket,
+        messagingSenderId: this.startup.startupData.messagingSenderId
+      });
+    }
   }
 }
