@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
-import { StartupService } from './services/startup.service';
+import { StartupService } from './_services/startup.service';
 import { Router } from '@angular/router';
 
 @Component({

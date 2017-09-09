@@ -1,0 +1,39 @@
+<div id="wrapper" class="toggled">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                Interests
+            </li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/anatonomy-physiology" >Anatonomy &amp; Physiology</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/art-architecture" >Art &amp; Architecture</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/astronomy" >Astronomy</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/biology" >Biology</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/ecology" >Ecology</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/economics" >Economics</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/geography" >Geography</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/history" >History</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/literature" >Literature</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/mathematics" >Mathematics</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/music" >Music</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/mythology" >Mythology</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/philosophy" >Philosophy</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/political-theory" >Political Theory</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/religion" >Religion</a></li>
+            <li routerLinkActive="active"><a routerLink="/knowledge/sociology" >Sociology</a></li>            
+        </ul>
+    </div>
+
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <router-outlet></router-outlet>            
+        </div>
+    </div>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</div>

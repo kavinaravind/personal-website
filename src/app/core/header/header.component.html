@@ -1,21 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-default navbar-static-top">
     <div class="container-fluid">
+
         <div class="navbar-header">
             <a routerLink="/" class="navbar-brand">
-                <img class="img-circle d-inline-block align-top" src="../../assets/LinkedInCoverPic.jpg" width="50" height="50" alt="">
-                <img class="img-circle d-inline-block align-top" src="../../assets/FinalResume_KavinAravind.pdf" width="0" height="0" alt="">
+                <img class="img-circle d-inline-block align-top" src="../../_assets/LinkedInCoverPic.jpg" width="50" height="50" alt="">
+                <img class="img-circle d-inline-block align-top" src="../../_assets/FinalResume_KavinAravind.pdf" width="0" height="0" alt="">
             </a>
         </div>
 
         <div class="collapse navbar-collapse">
+
             <ul class="nav navbar-nav">
                 <li routerLinkActive="active"><a routerLink="/projects" >Projects</a></li>
                 <li routerLinkActive="active"><a routerLink="/resume" >Resume</a></li>        
                 <li routerLinkActive="active"><a routerLink="/blog" >Blog</a></li>
-                <li routerLinkActive="active"><a routerLink="/contact" >Contact</a></li>                
-                <li routerLinkActive="active"><a routerLink="/recipes" >Recipes</a></li>
-                <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
+                <li routerLinkActive="active"><a routerLink="/contact" >Contact</a></li>
+                <ng-template [ngIf]="isAuthenticated()">
+                    <li routerLinkActive="active"><a routerLink="/career" >Career</a></li>                        
+                    <li routerLinkActive="active"><a routerLink="/knowledge" >Knowledge</a></li>
+                    <li routerLinkActive="active"><a routerLink="/languages" >Languages</a></li>                    
+                    <li routerLinkActive="active"><a routerLink="/pictures" >Pictures</a></li>                
+                    <li routerLinkActive="active"><a routerLink="/cuisine" >Cuisine</a></li>
+                </ng-template>
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <ng-template [ngIf]="!isAuthenticated()">
                     <li><a routerLink="/signup">Register</a></li>
@@ -34,6 +42,7 @@
                     </ul>
                 </li>
             </ul>
+
         </div>
     </div>
 </nav>

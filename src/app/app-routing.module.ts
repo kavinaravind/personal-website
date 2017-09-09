@@ -1,22 +1,38 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 
-import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { HomeComponent } from "./core/home/home.component";
-import { ContactComponent } from "./contact/contact.component";
-import { BlogComponent } from "./blog/blog.component";
-import { ResumeComponent } from "./resume/resume.component";
-import { ProjectsComponent } from "./projects/projects.component";
+
+import { ShoppingListComponent } from "./personal/cuisine/shopping-list/shopping-list.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { KnowledgeComponent } from "./personal/knowledge/knowledge.component";
+import { CareerComponent } from "./personal/career/career.component";
+import { PicturesComponent } from "./personal/pictures/pictures.component";
+import { LanguagesComponent } from "./personal/languages/languages.component";
+import { CuisineComponent } from "./personal/cuisine/cuisine.component";
 
 const appRoutes: Routes = [
+
+    // app-routing
     { path: '', component: HomeComponent },
-    { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'},
-    { path: 'projects', component: ProjectsComponent },    
-    { path: 'contact', component: ContactComponent },
-    { path: 'resume', component: ResumeComponent },    
-    { path: 'blog', component: BlogComponent },
-    { path: 'shopping-list', component: ShoppingListComponent },
+
+    // auth-routing
+    { path: 'signup', redirectTo: 'signup' },
+    { path: 'signin', redirectTo: 'signin' },
+
+    // public-routing
+    { path: 'projects', redirectTo: 'projects' },
+    { path: 'resume', redirectTo: 'resume' },
+    { path: 'blog', redirectTo: 'blog' },
+    { path: 'contact', redirectTo: 'contact' },
+
+    // personal-routing
+    { path: 'career', component: CareerComponent },
+    { path: 'languages', component: LanguagesComponent },
+    { path: 'pictures', component: PicturesComponent },
+    { path: 'cuisine', component: CuisineComponent },
+    { path: 'knowledge', loadChildren: './personal/personal.module#PersonalModule'},
+
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '404' },
 ];

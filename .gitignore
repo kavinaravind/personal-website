@@ -2,8 +2,6 @@
 
 # api keys
 
-src/app/shared/google-api-config.ts
-
 # compiled output
 /dist
 /tmp
