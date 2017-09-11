@@ -1,6 +1,8 @@
+import { Injectable } from "@angular/core";
 import { Subject } from "rxjs/Subject";
 import { Blog } from "../public/blog/blog.model";
 
+@Injectable()
 export class BlogService {
   
   startedEditing = new Subject<number>();
@@ -28,7 +30,7 @@ export class BlogService {
         'Weather',
         'October 1, 2017 at 10:00 PM',
         'http://placehold.it/900x300',
-        'This is a test 2',
+        'This is a test 3',
         'blog text 3'
     ),
   ];

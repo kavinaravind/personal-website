@@ -1,3 +1,6 @@
-<app-shopping-list></app-shopping-list>
-<hr>
-<app-recipes></app-recipes>
+<ul class="nav nav-tabs">
+    <li role="presentation" routerLinkActive="active"><a routerLink="/cuisine/recipes" >Recipes</a></li>
+    <li role="presentation" routerLinkActive="active"><a routerLink="/cuisine/shopping-list" >Shopping List</a></li>    
+</ul>
+<br>
+<router-outlet></router-outlet>

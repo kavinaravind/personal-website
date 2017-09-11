@@ -1,8 +1,7 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
-import { RecipesRoutingModule } from "./recipes/recipes-routing.module";
+import { CuisineRoutingModule } from "./cuisine-routing.module";
 import { SharedModule } from "../../_shared/shared.module";
 
 import { CuisineComponent } from "./cuisine.component";
@@ -36,10 +35,9 @@ import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-ed
         ShoppingEditComponent,
     ],
     imports: [
-        CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        RecipesRoutingModule,
+        CuisineRoutingModule,
         SharedModule
     ]
 })

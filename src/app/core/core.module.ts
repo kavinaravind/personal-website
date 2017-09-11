@@ -26,7 +26,7 @@ import { AuthService } from "../_services/auth.service";
     ],
     providers: [
         DataStorageService,
-        AuthService
+        AuthService,
     ]
 })
 export class CoreModule {} 

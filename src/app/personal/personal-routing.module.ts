@@ -1,52 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../_services/auth-guard.service';
 
-import { KnowledgeComponent } from "./knowledge/knowledge.component";
-import { AnatonomyPhysiologyComponent } from "./knowledge/anatonomy-physiology/anatonomy-physiology.component";
-import { ArtArchitectureComponent } from "./knowledge/art-architecture/art-architecture.component";
-import { AstronomyComponent } from "./knowledge/astronomy/astronomy.component";
-import { BiologyComponent } from "./knowledge/biology/biology.component";
-import { EcologyComponent } from "./knowledge/ecology/ecology.component";
-import { EconomicsComponent } from "./knowledge/economics/economics.component";
-import { GeographyComponent } from "./knowledge/geography/geography.component";
-import { HistoryComponent } from "./knowledge/history/history.component";
-import { LiteratureComponent } from "./knowledge/literature/literature.component";
-import { MathematicsComponent } from "./knowledge/mathematics/mathematics.component";
-import { MusicComponent } from "./knowledge/music/music.component";
-import { MythologyComponent } from "./knowledge/mythology/mythology.component";
-import { PhilosophyComponent } from "./knowledge/philosophy/philosophy.component";
-import { PoliticalTheoryComponent } from "./knowledge/political-theory/political-theory.component";
-import { ReligionComponent } from "./knowledge/religion/religion.component";
-import { SociologyComponent } from "./knowledge/sociology/sociology.component";
-
-import { PicturesComponent } from "./pictures/pictures.component";
 import { CareerComponent } from "./career/career.component";
 import { LanguagesComponent } from "./languages/languages.component";
+import { PicturesComponent } from "./pictures/pictures.component";
+import { CuisineComponent } from './cuisine/cuisine.component';
+import { ShoppingListComponent } from './cuisine/shopping-list/shopping-list.component';
+import { RecipesComponent } from './cuisine/recipes/recipes.component';
+import { RecipeStartComponent } from './cuisine/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './cuisine/recipes/recipe-edit/recipe-edit.component';
+import { RecipeDetailComponent } from './cuisine/recipes/recipe-detail/recipe-detail.component';
 
 const personalRoutes: Routes = [
-    { path: '', component: KnowledgeComponent, children: [
-        { path: 'anatonomy-physiology', component: AnatonomyPhysiologyComponent },
-        { path: 'art-architecture', component: ArtArchitectureComponent },
-        { path: 'astronomy', component: AstronomyComponent },
-        { path: 'biology', component: BiologyComponent },
-        { path: 'ecology', component: EcologyComponent },
-        { path: 'economics', component: EconomicsComponent },
-        { path: 'geography', component: GeographyComponent },
-        { path: 'history', component: HistoryComponent },
-        { path: 'literature', component: LiteratureComponent },
-        { path: 'mathematics', component: MathematicsComponent },        
-        { path: 'music', component: MusicComponent },
-        { path: 'mythology', component: MythologyComponent },
-        { path: 'philosophy', component: PhilosophyComponent },
-        { path: 'political-theory', component: PoliticalTheoryComponent },
-        { path: 'religion', component: ReligionComponent },
-        { path: 'sociology', component: SociologyComponent },     
-    ]}  
+    { path: 'career', component: CareerComponent },
+    { path: 'languages', component: LanguagesComponent },
+    { path: 'pictures', component: PicturesComponent },
+    { path: 'cuisine', loadChildren: './cuisine/cuisine.module#CuisineModule' }
 ];
-
 @NgModule({
     imports: [
-        RouterModule.forRoot(personalRoutes)
+        RouterModule.forChild(personalRoutes)
     ],
     exports: [RouterModule]
 })

@@ -27,18 +27,17 @@ const appRoutes: Routes = [
     { path: 'contact', redirectTo: 'contact' },
 
     // personal-routing
-    { path: 'career', component: CareerComponent },
-    { path: 'languages', component: LanguagesComponent },
-    { path: 'pictures', component: PicturesComponent },
-    { path: 'cuisine', component: CuisineComponent },
-    { path: 'knowledge', loadChildren: './personal/personal.module#PersonalModule'},
-
+    { path: 'career', redirectTo: 'career' },
+    { path: 'languages', redirectTo: 'languages' },
+    { path: 'pictures', redirectTo: 'pictures' },
+    { path: 'cuisine', redirectTo: 'cuisine' },
+    { path: 'knowledge', redirectTo: 'knowledge' },
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})],
+    imports: [RouterModule.forRoot(appRoutes)],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

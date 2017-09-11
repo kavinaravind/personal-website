@@ -1,24 +1,24 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { SharedModule } from "../../_shared/shared.module";
 import { FormsModule } from "@angular/forms";
 
 import { BlogComponent } from "./blog.component";
-import { BlogCondensedComponent } from "./blog-condensed/blog-condensed.component";
-import { BlogCreateComponent } from "./blog-create/blog-create.component";
+import { BlogItemComponent } from "./blog-item/blog-item.component";
 import { BlogEditComponent } from "./blog-edit/blog-edit.component";
 import { BlogPostComponent } from "./blog-post/blog-post.component";
+import { BlogRoutingModule } from "./blog-routing.module";
 
 @NgModule({
     declarations: [
         BlogComponent,
-        BlogCondensedComponent,
-        BlogCreateComponent,
+        BlogItemComponent,
         BlogEditComponent,
         BlogPostComponent
     ],
     imports: [
-        CommonModule,
-        FormsModule
+        SharedModule,
+        FormsModule,
+        BlogRoutingModule
     ]
 })
 export class BlogModule {}

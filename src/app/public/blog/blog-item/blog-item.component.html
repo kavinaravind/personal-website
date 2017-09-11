@@ -1,0 +1,18 @@
+<h2>
+    <a href="#">{{ blog.title }}</a>
+</h2>
+<p class="lead">
+    by <a href="index.php">{{ blog.category }}</a>
+</p>
+<p><span class="glyphicon glyphicon-time"></span> Posted on {{ blog.date }}</p>
+<hr>
+<img class="img-responsive" src="{{ blog.imagePath }}" alt="">
+<hr>
+<p>{{ blog.shortDescription }}</p>
+<a
+    class="btn btn-primary"
+    (click)="onEditItem(i)">
+    Read More 
+    <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+<hr>
