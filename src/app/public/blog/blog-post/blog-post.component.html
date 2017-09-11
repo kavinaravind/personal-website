@@ -1,1 +1,26 @@
-<h1>Blog Post</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+
+            <a class="btn btn-primary btn-lg" (click)="onBackToBlog()">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                Back to Blog
+            </a>
+
+            <h2>
+                {{ blog.title }}
+            </h2>
+            <p class="lead">
+                Category: <a href="index.php">{{ blog.category }}</a>
+            </p>
+            <p><span class="glyphicon glyphicon-time"></span> Posted on {{ blog.date }}</p>
+            <hr>
+            <img class="img-responsive" src="{{ blog.imagePath }}" alt="">
+            <hr>
+            <p>{{ blog.blogText }}</p>
+        </div>
+
+        <app-blog-side-panel></app-blog-side-panel>
+
+    </div>
+</div>

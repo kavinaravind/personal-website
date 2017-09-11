@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from "rxjs/Subscription";
-import { BlogService } from '../../_services/blog.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { Blog } from './blog.model';
+import { BlogService } from '../../_services/blog.service';
 
 @Component({
   selector: 'app-blog',
@@ -13,7 +15,9 @@ export class BlogComponent implements OnInit, OnDestroy {
   blogs: Blog[];
   private subscription: Subscription;
 
-  constructor(private blogService: BlogService ) {}
+  constructor(private blogService: BlogService,
+              private router: Router,
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.blogs = this.blogService.getBlogs();
@@ -24,8 +28,8 @@ export class BlogComponent implements OnInit, OnDestroy {
     );
   }
 
-  onEditItem(index: number) {
-    this.blogService.startedEditing.next(index);
+  onNewBlog() {
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 
   ngOnDestroy() {

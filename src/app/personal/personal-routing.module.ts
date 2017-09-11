@@ -16,7 +16,8 @@ const personalRoutes: Routes = [
     { path: 'career', component: CareerComponent },
     { path: 'languages', component: LanguagesComponent },
     { path: 'pictures', component: PicturesComponent },
-    { path: 'cuisine', loadChildren: './cuisine/cuisine.module#CuisineModule' }
+    { path: 'cuisine', loadChildren: './cuisine/cuisine.module#CuisineModule' },
+    { path: 'knowledge', loadChildren: './knowledge/knowledge.module#KnowledgeModule'}
 ];
 @NgModule({
     imports: [

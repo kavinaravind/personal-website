@@ -32,6 +32,7 @@ const appRoutes: Routes = [
     { path: 'pictures', redirectTo: 'pictures' },
     { path: 'cuisine', redirectTo: 'cuisine' },
     { path: 'knowledge', redirectTo: 'knowledge' },
+
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '404' },
 ];

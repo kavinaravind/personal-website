@@ -21,7 +21,7 @@ import { ReligionComponent } from "./religion/religion.component";
 import { SociologyComponent } from "./sociology/sociology.component";
 
 const knowledgeRoutes: Routes = [
-    { path: 'knowledge', component: KnowledgeComponent, children: [
+    { path: '', component: KnowledgeComponent, children: [
         { path: 'anatonomy-physiology', component: AnatonomyPhysiologyComponent },
         { path: 'art-architecture', component: ArtArchitectureComponent },
         { path: 'astronomy', component: AstronomyComponent },

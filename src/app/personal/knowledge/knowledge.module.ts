@@ -1,7 +1,8 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+
+import { SharedModule } from "../../_shared/shared.module";
 import { FormsModule } from "@angular/forms";
-import { AuthRoutingModule } from "../../_auth/auth-routing.module";
+import { KnowledgeRoutingModule } from "./knowledge-routing.module";
 
 import { KnowledgeComponent } from "./knowledge.component";
 import { AnatonomyPhysiologyComponent } from "./anatonomy-physiology/anatonomy-physiology.component";
@@ -20,7 +21,7 @@ import { PhilosophyComponent } from "./philosophy/philosophy.component";
 import { PoliticalTheoryComponent } from "./political-theory/political-theory.component";
 import { ReligionComponent } from "./religion/religion.component";
 import { SociologyComponent } from "./sociology/sociology.component";
-import { KnowledgeRoutingModule } from "./knowledge-routing.module";
+import { MdSidenavModule, MdListModule, MdButtonModule } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -43,10 +44,12 @@ import { KnowledgeRoutingModule } from "./knowledge-routing.module";
         SociologyComponent
     ],
     imports: [
-        CommonModule,
+        SharedModule,
         FormsModule,
         KnowledgeRoutingModule,
-        AuthRoutingModule
+        MdSidenavModule,
+        MdListModule,
+        MdButtonModule
     ]
 })
 export class KnowledgeModule {}

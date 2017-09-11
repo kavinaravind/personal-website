@@ -1,39 +1,31 @@
-<div id="wrapper" class="toggled">
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                Interests
-            </li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/anatonomy-physiology" >Anatonomy &amp; Physiology</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/art-architecture" >Art &amp; Architecture</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/astronomy" >Astronomy</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/biology" >Biology</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/ecology" >Ecology</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/economics" >Economics</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/geography" >Geography</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/history" >History</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/literature" >Literature</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/mathematics" >Mathematics</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/music" >Music</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/mythology" >Mythology</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/philosophy" >Philosophy</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/political-theory" >Political Theory</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/religion" >Religion</a></li>
-            <li routerLinkActive="active"><a routerLink="/knowledge/sociology" >Sociology</a></li>            
-        </ul>
+<md-sidenav-container fullscreen class="knowledge-container">
+    <md-sidenav #sidenav mode="side" opened="true" class="knowledge-sidenav">
+            <md-nav-list>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/anatonomy-physiology">Anatonomy &amp; Physiology</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/astronomy">Astronomy</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/biology">Biology</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/ecology">Ecology</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/economics">Economics</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/geography">Geography</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/history">History</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/literature">Literature</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/mathematics">Mathematics</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/music">Music</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/mythology">Mythology</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/philosophy">Philosophy</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/political-theory">Political Theory</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/religion">Religion</a>
+                <a md-list-item routerLinkActive="active" routerLink="/knowledge/sociology">Sociology</a>
+            </md-nav-list>
+    </md-sidenav>
+
+    <!-- primary content -->
+    <div class="knowledge-sidenav-content">
+
+        <button md-raised-button color="#263238" (click)="sidenav.toggle()">Toggle Side Drawer</button>
+        
+        <router-outlet></router-outlet>
+
     </div>
 
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <router-outlet></router-outlet>            
-        </div>
-    </div>
-
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
-</div>
+</md-sidenav-container>

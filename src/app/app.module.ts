@@ -10,6 +10,7 @@ import { PersonalModule } from "./personal/personal.module";
 import { LAZY_MAPS_API_CONFIG, LazyMapsAPILoaderConfigLiteral, AgmCoreModule } from '@agm/core';
 import { PublicModule } from "./public/public.module";
 import { KnowledgeModule } from './personal/knowledge/knowledge.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from "./not-found/not-found.component";
@@ -41,12 +42,12 @@ class GoogleMapsConfig implements LazyMapsAPILoaderConfigLiteral, OnInit {
     BrowserModule,
     HttpModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     SharedModule,
     AuthModule,
     CoreModule,
     PublicModule,
     PersonalModule,
-    KnowledgeModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyALoB65r4Dm6PuLPb77YhVOtQLadltuI7s'
     })
