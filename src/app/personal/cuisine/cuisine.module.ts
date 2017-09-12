@@ -3,6 +3,7 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CuisineRoutingModule } from "./cuisine-routing.module";
 import { SharedModule } from "../../_shared/shared.module";
+import { MdTabsModule } from "@angular/material";
 
 import { CuisineComponent } from "./cuisine.component";
 
@@ -38,7 +39,8 @@ import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-ed
         FormsModule,
         ReactiveFormsModule,
         CuisineRoutingModule,
-        SharedModule
+        SharedModule,
+        MdTabsModule
     ]
 })
 export class CuisineModule {}

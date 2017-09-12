@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import { PowerHourComponent } from './power-hour/power-hour.component';
 
 @Component({
   selector: 'app-projects',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
   }
 
+  openDialog(): void {
+    let dialogRef = this.dialog.open(PowerHourComponent, {
+      width: '1050px'
+    });
+  }
 }

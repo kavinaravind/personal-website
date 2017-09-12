@@ -5,8 +5,8 @@ import { ProjectsComponent } from './projects.component';
 import { PowerHourComponent } from './power-hour/power-hour.component';
 
 const projectRoutes: Routes = [
-    { path: '', component: PowerHourComponent },
-    { path: 'power-hour', component: ProjectsComponent }
+    { path: '', component: ProjectsComponent },
+    { path: 'power-hour', component: PowerHourComponent }
 ]; 
 @NgModule({
     imports: [

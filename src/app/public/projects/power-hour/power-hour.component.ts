@@ -24,11 +24,16 @@ export class PowerHourComponent implements OnInit {
 
         this.setupWebAudio();
 
+        let x;
+        let y;
+        let radius;
+        let color;
+
         for (var i = 0; i < 20; i++) {
-            let x = this.random() * this.canvasRef.nativeElement.width;
-            let y = this.random() * this.canvasRef.nativeElement.height;
-            let radius = this.random() * 100 + 50;
-            let color = 'rgb(' + this.getRandomColor() + ',' + 0 + ',' + this.getRandomColor() + ')';
+            x = this.random() * this.canvasRef.nativeElement.width;
+            y = this.random() * this.canvasRef.nativeElement.height;
+            radius = this.random() * 100 + 50;
+            color = 'rgb(' + this.getRandomColor() + ',' + 0 + ',' + this.getRandomColor() + ')';
             this.circles[i] = new Circle(x, y, radius, color);
             this.drawCircle(this.circles[i]);
         }
@@ -60,13 +65,13 @@ export class PowerHourComponent implements OnInit {
         this.analyser.getByteFrequencyData(freqByteData);
         this.ctx.clearRect(0, 0, this.canvasRef.nativeElement.width, this.canvasRef.nativeElement.height);
 
-        for (var i = 0; i < this.circles.length; i++) {
+        for (var i = 1; i < this.circles.length; i++) {
             this.circles[i].radius = freqByteData[i] * 2;
             this.circles[i].y = this.circles[i].y > this.canvasRef.nativeElement.height ? 0 : this.circles[i].y + 1;
             this.drawCircle(this.circles[i]);            
         }
 
-        for (var i = 0; i < freqByteData.length; i++) {
+        for (var i = 1; i < freqByteData.length; i++) {
             this.ctx.fillStyle = 'rgb(' + this.getRandomColor() + ',' + 0 + ',' + this.getRandomColor() + ')';
             this.ctx.fillRect(i, this.canvasRef.nativeElement.height - freqByteData[i] * 3, 1, this.canvasRef.nativeElement.height);
             this.ctx.strokeRect(i, this.canvasRef.nativeElement.height - freqByteData[i] * 3, 1, this.canvasRef.nativeElement.height);
