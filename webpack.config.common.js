@@ -17,7 +17,7 @@ module.exports = {
                 loaders: ['raw-loader']
             },
             {
-                test: /\.(pdf|jpe?g|png|gif|svg)$/, 
+                test: /\.(mp3|pdf|jpe?g|png|gif|svg)$/, 
                 loader: 'file-loader?name=assets/[name].[ext]'
             }
         ],
