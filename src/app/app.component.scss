@@ -1,0 +1,15 @@
+@import '../../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+$anms-light-primary: mat-palette($mat-blue-grey, 800, 200, 900);
+$anms-light-accent: mat-palette($mat-indigo);
+$anms-light-warn: mat-palette($mat-deep-orange, 400);
+
+$anms-personal-theme: mat-light-theme(
+    $anms-light-primary,
+    $anms-light-accent,
+    $anms-light-warn
+);
+
+@include angular-material-theme($anms-personal-theme);

@@ -1,49 +1,73 @@
-<nav class="navbar navbar-expand-lg navbar-default navbar-static-top">
-    <div class="container-fluid">
+<md-toolbar color="primary" class="mat-elevation-z4">
+    
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
 
-        <div class="navbar-header">
-            <a routerLink="/" class="navbar-brand">
-                <img class="img-circle d-inline-block align-top" src="../../_assets/LinkedInCoverPic.jpg" width="50" height="50" alt="">
-                <img class="img-circle d-inline-block align-top" src="../../_assets/FinalResume_KavinAravind.pdf" width="0" height="0" alt="">
-                <img class="img-circle d-inline-block align-top" src="../../_assets/music.mp3" width="0" height="0" alt="">                
-            </a>
-        </div>
+        <button md-button routerLink="/projects">Projects</button>
+        <button md-button routerLink="/resume">Resume</button>
+        <button md-button routerLink="/blog">Blog</button>
+        <button md-button routerLink="/contact">Contact</button>
 
-        <div class="collapse navbar-collapse">
+        <ng-template [ngIf]="isAuthenticated()">
+            <button md-button routerLink="/career">Career</button>
+            <button md-button routerLink="/knowledge">Knowledge</button>
+            <button md-button routerLink="/languages">Languages</button>
+            <button md-button routerLink="/pictures">Pictures</button>
+            <button md-button routerLink="/cuisine/recipes">Cuisine</button>
+        </ng-template>
 
-            <ul class="nav navbar-nav">
-                <li routerLinkActive="active"><a routerLink="/projects" >Projects</a></li>
-                <li routerLinkActive="active"><a routerLink="/resume" >Resume</a></li>        
-                <li routerLinkActive="active"><a routerLink="/blog" >Blog</a></li>
-                <li routerLinkActive="active"><a routerLink="/contact" >Contact</a></li>
-                <ng-template [ngIf]="isAuthenticated()">
-                    <li routerLinkActive="active"><a routerLink="/career" >Career</a></li>                        
-                    <li routerLinkActive="active"><a routerLink="/knowledge" >Knowledge</a></li>
-                    <li routerLinkActive="active"><a routerLink="/languages" >Languages</a></li>                    
-                    <li routerLinkActive="active"><a routerLink="/pictures" >Pictures</a></li>                
-                    <li routerLinkActive="active"><a routerLink="/cuisine/recipes" >Cuisine</a></li>
-                </ng-template>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <ng-template [ngIf]="!isAuthenticated()">
-                    <li><a routerLink="/signup">Register</a></li>
-                    <li><a routerLink="/signin">Login</a></li>
-                </ng-template>
-                <li><a
-                    style="cursor: pointer;"
-                    (click)="onLogout()"
-                    *ngIf="isAuthenticated()">Logout</a></li>
-
-                <li class="dropdown" appDropdown *ngIf="isAuthenticated()">
-                    <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
-                    <ul class ="dropdown-menu">
-                        <li><a style="cursor: pointer;" (click)="onSaveData()">Save Data</a></li>
-                        <li><a style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-        </div>
     </div>
-</nav>
+
+    <span class="fill-remaining-space"></span>
+
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+
+        <ng-template [ngIf]="!isAuthenticated()">
+            <button md-button routerLink="/signup">Register</button>
+            <button md-button routerLink="/signin">Login</button>
+        </ng-template>
+
+        <button md-button (click)="onLogout()" *ngIf="isAuthenticated()">Logout</button>
+
+        <md-menu #appMenu="mdMenu">
+            <button md-menu-item (click)="onSaveData()">Save Data</button>
+            <button md-menu-item (click)="onFetchData()">Fetch Data</button>
+        </md-menu>
+
+        <button md-button [md-menu-trigger-for]="appMenu" *ngIf="isAuthenticated()">
+            Manage <span class="caret"></span>
+        </button>
+
+        <button md-button routerLink="/">
+            <img class="img-circle d-inline-block align-top" src="../../_assets/LinkedInCoverPic.jpg" width="50" height="50" alt="">
+        </button>
+
+    </div>
+
+    <button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+        Menu <span class="caret"></span>
+    </button>
+
+</md-toolbar>
+<br>
+
+<md-menu x-position="before" #menu="mdMenu">
+    <button md-button routerLink="/projects">Projects</button>
+    <button md-button routerLink="/resume">Resume</button>
+    <button md-button routerLink="/blog">Blog</button>
+    <button md-button routerLink="/contact">Contact</button>
+    <ng-template [ngIf]="isAuthenticated()">
+        <button md-button routerLink="/career">Career</button>
+        <button md-button routerLink="/knowledge">Knowledge</button>
+        <button md-button routerLink="/languages">Languages</button>
+        <button md-button routerLink="/pictures">Pictures</button>
+        <button md-button routerLink="/cuisine/recipes">Cuisine</button>
+    </ng-template>
+    <ng-template [ngIf]="!isAuthenticated()">
+        <button md-button routerLink="/signup">Register</button>
+        <button md-button routerLink="/signin">Login</button>
+    </ng-template>
+    <ng-template [ngIf]="isAuthenticated()">
+        <button md-button (click)="onSaveData()">Save Data</button>
+        <button md-button (click)="onFetchData()">Fetch Data</button>
+    </ng-template>
+</md-menu>

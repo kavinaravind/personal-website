@@ -10,11 +10,14 @@ import { CareerComponent } from "./personal/career/career.component";
 import { PicturesComponent } from "./personal/pictures/pictures.component";
 import { LanguagesComponent } from "./personal/languages/languages.component";
 import { CuisineComponent } from "./personal/cuisine/cuisine.component";
+import { CoverComponent } from "./cover/cover.component";
 
 const appRoutes: Routes = [
 
     // app-routing
-    { path: '', component: HomeComponent },
+    { path: '', component: CoverComponent },
+    { path: 'home', component: HomeComponent },
+    
 
     // auth-routing
     { path: 'signup', redirectTo: 'signup' },

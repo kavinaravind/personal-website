@@ -1,9 +1,7 @@
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { ReactiveFormsModule } from "@angular/forms";
-import { CuisineRoutingModule } from "./cuisine-routing.module";
 import { SharedModule } from "../../_shared/shared.module";
-import { MdTabsModule } from "@angular/material";
+import { MdTabsModule, MdSidenavModule } from "@angular/material";
+import { CuisineRoutingModule } from "./cuisine-routing.module";
 
 import { CuisineComponent } from "./cuisine.component";
 
@@ -36,11 +34,10 @@ import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-ed
         ShoppingEditComponent,
     ],
     imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        CuisineRoutingModule,
         SharedModule,
-        MdTabsModule
+        MdTabsModule,
+        MdSidenavModule,
+        CuisineRoutingModule,
     ]
 })
 export class CuisineModule {}

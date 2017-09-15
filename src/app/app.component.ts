@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
       this.router.navigate(['404'], { replaceUrl: true });
       this.location = '404';
     } else {
+      this.location = 'cover';
       firebase.initializeApp({
         apiKey: this.startup.startupData.apiKey,
         authDomain: this.startup.startupData.authDomain,
@@ -33,5 +34,9 @@ export class AppComponent implements OnInit {
         messagingSenderId: this.startup.startupData.messagingSenderId
       });
     }
+  }
+
+  getRoute(){
+    return this.router.url;
   }
 }

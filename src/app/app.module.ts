@@ -7,15 +7,18 @@ import { ShoppingListModule } from "./personal/cuisine/shopping-list/shopping-li
 import { AuthModule } from "./_auth/auth.module";
 import { CoreModule } from "./core/core.module";
 import { PersonalModule } from "./personal/personal.module";
-import { LAZY_MAPS_API_CONFIG, LazyMapsAPILoaderConfigLiteral, AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, LazyMapsAPILoaderConfigLiteral } from '@agm/core';
 import { PublicModule } from "./public/public.module";
 import { KnowledgeModule } from './personal/knowledge/knowledge.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@angular/material';
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from "./not-found/not-found.component";
 
 import { StartupService } from "./_services/startup.service";
+import { CoverComponent } from './cover/cover.component';
 
 export function startupServiceFactory(startupService: StartupService): Function {
   return () => startupService.load();
@@ -36,6 +39,7 @@ class GoogleMapsConfig implements LazyMapsAPILoaderConfigLiteral, OnInit {
 @NgModule({
   declarations: [
     AppComponent,
+    CoverComponent,
     NotFoundComponent
   ],
   imports: [
@@ -43,6 +47,7 @@ class GoogleMapsConfig implements LazyMapsAPILoaderConfigLiteral, OnInit {
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MaterialModule,
     SharedModule,
     AuthModule,
     CoreModule,
@@ -55,17 +60,11 @@ class GoogleMapsConfig implements LazyMapsAPILoaderConfigLiteral, OnInit {
   providers: [
     StartupService,
     {
-        // Provider for APP_INITIALIZER
         provide: APP_INITIALIZER,
         useFactory: startupServiceFactory,
         deps: [StartupService],
         multi: true
     }
-    // ,{
-    //   provide: LAZY_MAPS_API_CONFIG,
-    //   useClass: GoogleMapsConfig,
-    //   deps: [StartupService]
-    // }
 ],
   bootstrap: [AppComponent]
 })

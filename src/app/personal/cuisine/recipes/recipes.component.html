@@ -1,8 +1,28 @@
 <div class="row">
-  <div class="col-md-5">
-    <app-recipe-list></app-recipe-list>  
-  </div>
-  <div class="col-md-7">
-    <router-outlet></router-outlet>
-  </div>
+  <md-sidenav-container class="recipes-container">
+    <md-sidenav #sidenav mode="side" opened="true" class="recipes-sidenav">
+      <md-nav-list>
+        <a md-list-item routerLinkActive="active" routerLink="/knowledge/anatonomy-physiology">Asian</a>
+        <a md-list-item routerLinkActive="active" routerLink="/knowledge/astronomy">Indian</a>
+        <a md-list-item routerLinkActive="active" routerLink="/knowledge/biology">Italian</a>
+        <a md-list-item routerLinkActive="active" routerLink="/knowledge/ecology">Mexican</a>
+        <a md-list-item routerLinkActive="active" routerLink="/knowledge/ecology">Southern</a>
+      </md-nav-list>
+    </md-sidenav>
+
+    <div class="recipes-sidenav-content">
+      <div class="col-md-5">
+        <button md-mini-fab color="accent" type="button" (click)="sidenav.toggle()">
+          <i *ngIf="sidenav.opened"class="fa fa-angle-left" aria-hidden="true"></i>
+          <i *ngIf="!sidenav.opened"class="fa fa-angle-right" aria-hidden="true"></i>          
+        </button>
+        <app-recipe-list></app-recipe-list>
+      </div>
+      <div class="col-md-7">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+  </md-sidenav-container>
+
 </div>

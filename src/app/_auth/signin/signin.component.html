@@ -1,15 +1,27 @@
 <div class="row">
   <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form (ngSubmit)="onSignin(f)" #f="ngForm">
-      <div class="form-group">
-        <label for="email">Mail</label>
-        <input type="email" id="email" name="email" ngModel class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="email">Password</label>
-        <input type="password" id="password" name="password" ngModel class="form-control">
-      </div>
-      <button class="btn btn-primary" type="submit">Sign In</button>
-    </form>    
-  </div>  
-</div>  
+    <form [formGroup]="form" (ngSubmit)="onSignin()">
+      <md-form-field class="sign-in-full-width">
+        <input formControlName="email" mdInput placeholder="Email" type="email">
+        <md-error *ngIf="form.get('email').hasError('pattern')">
+          Please enter a valid email address
+        </md-error>
+        <md-error *ngIf="form.get('email').hasError('required')">
+          Email is <strong>required</strong>
+        </md-error>
+      </md-form-field>
+      <br>
+      <md-form-field class="sign-in-full-width">
+        <input formControlName="password" mdInput placeholder="Password" type="password">
+        <md-error *ngIf="form.get('password').hasError('pattern')">
+          Password needs at least <strong>one</strong> number, <strong>one</strong> lowercase and uppercase letter, and at least <strong>six</strong> characters
+        </md-error>
+        <md-error *ngIf="form.get('password').hasError('required')">
+          Password is <strong>required</strong>
+        </md-error>
+      </md-form-field>
+      <br>
+      <button md-raised-button color="accent" type="submit">Sign In</button>
+    </form>
+  </div>
+</div>

@@ -1,15 +1,28 @@
 <div class="row">
   <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
     <form (ngSubmit)="onSignup(f)" #f="ngForm">
-      <div class="form-group">
-        <label for="email">Mail</label>
-        <input type="email" id="email" name="email" ngModel class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="email">Password</label>
-        <input type="password" id="password" name="password" ngModel class="form-control">
-      </div>
-      <button class="btn btn-primary" type="submit">Sign Up</button>
-    </form>    
-  </div>  
-</div>  
+      <md-form-field class="sign-in-full-width">
+        <input mdInput placeholder="Email" type="email" id="email" name="email" ngModel class="form-control" [formControl]="emailFormControl">
+        <md-error *ngIf="emailFormControl.hasError('pattern')">
+          Please enter a valid email address
+        </md-error>
+        <md-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </md-error>
+      </md-form-field>
+      <br>
+      <md-form-field class="sign-in-full-width">
+        <input mdInput placeholder="Password" type="password" id="password" name="password" ngModel class="form-control" [formControl]="passwordFormControl">
+        <md-error *ngIf="passwordFormControl.hasError('pattern')">
+          Password needs at least <strong>one</strong> number, <strong>one</strong> lowercase and uppercase letter, and at
+          least <strong>six</strong> characters
+        </md-error>
+        <md-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </md-error>
+      </md-form-field>
+      <br>
+      <button md-raised-button color="accent" type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
