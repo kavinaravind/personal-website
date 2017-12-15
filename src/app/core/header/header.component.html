@@ -2,10 +2,10 @@
     
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
 
-        <button md-button routerLink="/projects">Projects</button>
-        <button md-button routerLink="/resume">Resume</button>
-        <button md-button routerLink="/blog">Blog</button>
-        <button md-button routerLink="/contact">Contact</button>
+        <button md-button routerLink="/home/projects">Projects</button>
+        <button md-button routerLink="/home/resume">Resume</button>
+        <button md-button routerLink="/home/blog">Blog</button>
+        <button md-button routerLink="/home/contact">Contact</button>
 
         <ng-template [ngIf]="isAuthenticated()">
             <button md-button routerLink="/career">Career</button>
@@ -22,8 +22,8 @@
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
 
         <ng-template [ngIf]="!isAuthenticated()">
-            <button md-button routerLink="/signup">Register</button>
-            <button md-button routerLink="/signin">Login</button>
+            <button md-button routerLink="/home/signup">Register</button>
+            <button md-button routerLink="/home/signin">Login</button>
         </ng-template>
 
         <button md-button (click)="onLogout()" *ngIf="isAuthenticated()">Logout</button>

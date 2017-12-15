@@ -15,7 +15,6 @@ import { MdDialogModule, MdCardModule } from "@angular/material";
     ],
     imports: [
         SharedModule,
-        FormsModule,
         ProjectsRoutingModule,
         MdDialogModule,
         MdCardModule,

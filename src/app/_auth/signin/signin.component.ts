@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from "@angular/forms";
 import { AuthService } from "../../_services/auth.service";
+import { Router } from '@angular/router';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PASS_REGEX = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
@@ -23,7 +24,8 @@ export class SigninComponent implements OnInit {
     ])
   });
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router) {}
 
   ngOnInit() {
   }
@@ -33,5 +35,4 @@ export class SigninComponent implements OnInit {
     const password = this.form.get('password').value;
     this.authService.signinUser(email, password);
   }
-    
 }

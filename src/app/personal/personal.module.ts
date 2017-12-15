@@ -21,7 +21,6 @@ import { CuisineComponent } from "./cuisine/cuisine.component";
     ],
     imports: [
         SharedModule,
-        PersonalRoutingModule,
         SharedModule
     ],
     providers: [

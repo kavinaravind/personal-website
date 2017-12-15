@@ -1,27 +1,40 @@
+
 * {
     margin: 0;
     padding: 0;
-}
-body {
-    margin: 0;
-}
-
-
-#showcase {
+  }
+  
+  #showcase {
     background-image: url('assets/cover.jpg');
     background-size: cover;
     background-position: center;
+    color: #FFFFFF;
+    margin: 0;
+    font-family: 'Kaushan Script', sans-serif;  
     height: 100vh;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0 20px;
-}
-
-#showcase h1 {
-    font-size: 50px;
-}
-
-#showcase p {
+  }
+  
+  #showcase h1 {
+    font-size: 80px;
+    line-height: 1.2;
+  }
+  
+  #showcase p {
+    font-size: 30px;
+  }
+  
+  #showcase button {
+    font-family : inherit;
     font-size: 20px;
-}
+    text-decoration: none;
+    color: #FFFFFF;
+    border: #FFFFFF 1px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }

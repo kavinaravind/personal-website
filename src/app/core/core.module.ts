@@ -1,31 +1,31 @@
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../_shared/shared.module";
-import { AppRoutingModule } from "../app-routing.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+import { CoreComponent } from "./core.component";
 import { HeaderComponent } from "../core/header/header.component";
-import { HomeComponent } from "../core/home/home.component";
 import { FooterComponent } from "./footer/footer.component";
 
 import { DataStorageService } from "../_shared/data-storage.service";
 import { AuthService } from "../_services/auth.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ProjectsModule } from "../public/projects/projects.module";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     declarations: [
         HeaderComponent,
-        HomeComponent,
         FooterComponent
     ],
     imports: [
         SharedModule,
+        ProjectsModule,
+        RouterModule,
         BrowserAnimationsModule,        
-        AppRoutingModule,
     ],
     exports: [
         HeaderComponent,
         FooterComponent,
-        AppRoutingModule,
     ],
     providers: [
         DataStorageService,

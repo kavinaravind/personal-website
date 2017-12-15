@@ -1,6 +1,4 @@
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from '../_services/auth-guard.service';
 
 import { CareerComponent } from "./career/career.component";
 import { LanguagesComponent } from "./languages/languages.component";
@@ -19,10 +17,5 @@ const personalRoutes: Routes = [
     { path: 'cuisine', loadChildren: './cuisine/cuisine.module#CuisineModule' },
     { path: 'knowledge', loadChildren: './knowledge/knowledge.module#KnowledgeModule'}
 ];
-@NgModule({
-    imports: [
-        RouterModule.forChild(personalRoutes)
-    ],
-    exports: [RouterModule]
-})
+
 export class PersonalRoutingModule {}

@@ -15,7 +15,6 @@ const blogRoutes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forChild(blogRoutes)
-    ],
-    exports: [RouterModule]
+    ]
 })
 export class BlogRoutingModule {} 

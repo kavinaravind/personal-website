@@ -10,11 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  public location = '';
-
-  constructor(private router: Router, private startup: StartupService) {
-
-  }
+  constructor(private router: Router, private startup: StartupService) {}
 
   ngOnInit() {
     
@@ -22,9 +18,7 @@ export class AppComponent implements OnInit {
     // navigate to error route
     if (!this.startup.startupData) {
       this.router.navigate(['404'], { replaceUrl: true });
-      this.location = '404';
     } else {
-      this.location = 'cover';
       firebase.initializeApp({
         apiKey: this.startup.startupData.apiKey,
         authDomain: this.startup.startupData.authDomain,
@@ -34,9 +28,5 @@ export class AppComponent implements OnInit {
         messagingSenderId: this.startup.startupData.messagingSenderId
       });
     }
-  }
-
-  getRoute(){
-    return this.router.url;
   }
 }

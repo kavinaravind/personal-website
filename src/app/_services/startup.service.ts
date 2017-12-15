@@ -20,7 +20,7 @@ export class StartupService {
         this._startupData = null;
 
         return this.http
-            .get('http://localhost:3000/api/googleConfig')
+            .get('http://localhost:3005/api/googleConfig')
             .map((res: Response) => res.json())
             .toPromise()
             .then((data: any) => this._startupData = data)
